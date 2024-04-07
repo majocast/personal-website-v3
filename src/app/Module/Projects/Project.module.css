@@ -1,5 +1,12 @@
+.ProjectsWrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 1000px;
+}
+
 .ProjectContainer {
-	position: relative;
+	margin: 20px 40px;
 	display: flex;
 	width: auto;
 	border-left: 0;
@@ -13,14 +20,14 @@
 .ProjectContainer button {
 	position: relative;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 25%;
 	height: auto;
 	min-width: 400px;
 	aspect-ratio: 16/9;
 	z-index: 2;
 	border: 0;
-	background: no-repeat center url("../../../assets/lozanopowerelectric - Copy.jpg");
-	background-size: contain;
 }
 
 .ProjectContainer button::before {
@@ -55,7 +62,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: white;
 }
 
 /*
@@ -75,9 +81,14 @@
 
 .ProjectDescription {
 	border-radius: 0 1rem 1rem 0;
+	background-color: white;
 }
 
 .ProjectTechnologies {
+	height: 100%;
+	padding: 0 1rem;
+	background-color: black;
+	margin-left: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;

@@ -1,12 +1,9 @@
 'use client';
 
-import Image from "next/image";
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from "./Project.module.css";
 import { ReactElement, useRef, useState } from "react";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import type { IconType } from "react-icons";
-import LozanoPower from '../../../assets/lozanopowerelectric - Copy.jpg'
 import type { Project } from ".";
 import {
   BiLogoReact, 
@@ -14,13 +11,16 @@ import {
   BiLogoHtml5, 
   BiLogoJavascript,
 } from 'react-icons/bi';
+import Image from 'next/image';
 
 const slideVariants = {
 	open: {
 		width: "100%",
+		order: 2,
 	},
 	closed: {
-		width: 0
+		width: 0,
+		order: 1,
 	},
 	openText: {
 		opacity: 1,
@@ -32,17 +32,11 @@ const slideVariants = {
 
 export default function Project(projectData: Project): ReactElement {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-	/*const technologies: ReactElement[] = projectData.technologies.map((tech: string, i: number): ReactElement => {
-		const Icon = tech;
-		return <span style={{color: "white"}}>{tech}</span>
-		//return <Icon key={i} size={35} color="white"/>
-	})*/
 
 	//TODO: integrate method to grab strings and import on demand for IconTypes
 	const technologies = [BiLogoHtml5, BiLogoCss3, BiLogoReact, BiLogoJavascript]
 	const processedTechnologies: ReactElement[] = technologies.map((tech: IconType, i: number): ReactElement => {
 		const Icon = tech;
-		//return <span style={{color: "white"}}>{tech}</span>
 		return <Icon key={i} size={35} color="white"/>
 	})
 
@@ -51,8 +45,15 @@ export default function Project(projectData: Project): ReactElement {
 	}
 
 	return (
-		<div className={styles.ProjectContainer}>
-			<button onClick={toggleContent} />
+		<motion.div
+			layout
+			transition={{ duration: 0.5 }}
+			className={styles.ProjectContainer}
+			style={{ order: isOpen ? 1 : 2}}
+		>
+			<button onClick={toggleContent}>
+				<Image style={{width: "100%", maxWidth:"400px", height:"auto"}} src={projectData.image.src} alt={projectData.image.alt}/>
+			</button>
 			<AnimatePresence>
 				{
 					isOpen && <motion.section
@@ -66,7 +67,7 @@ export default function Project(projectData: Project): ReactElement {
 							{processedTechnologies}
 						</div>
 						<motion.div
-							initial={{opacity: 0}}
+							initial={{ opacity: 0, padding: 0 }}
 							animate={{
 								opacity: 1,
 								padding: "1rem",
@@ -74,6 +75,7 @@ export default function Project(projectData: Project): ReactElement {
 							}}
 							exit={{
 								opacity: 0,
+								padding: 0,
 								transition: {duration: 0}
 							}}
 							variants={slideVariants}
@@ -83,7 +85,7 @@ export default function Project(projectData: Project): ReactElement {
 					</motion.section>
 				}
 			</AnimatePresence>
-		</div>
+		</motion.div>
 	)
 	
 }

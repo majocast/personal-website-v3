@@ -47,18 +47,24 @@ const slideVariants = {
 }
 
 export default function Projects(projectsData: ProjectsData): ReactElement {
-	console.log(projectsData)
 	let projectsArray = projectsData.projects;
 	const Projects: ReactElement[] = projectsArray.map((project: Project, i: number): ReactElement => {
+		console.log(project)
 		return (
-			<Project {...project}/>
+			<Project key={i} {...project}/>
 		)
 	})
 
 	return (
-		<div className={styles.ProjectsWrapper}>
-			{Projects}
-		</div>
+		<motion.div 
+			className={styles.ProjectsWrapper}
+			layout
+			transition={{ duration: 0.5 }}
+		>
+			<AnimatePresence>
+				{Projects}
+			</AnimatePresence>
+		</motion.div>
 	)
 	
 }
