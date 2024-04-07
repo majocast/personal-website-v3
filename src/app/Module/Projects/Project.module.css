@@ -1,33 +1,32 @@
 .ProjectContainer {
+	position: relative;
 	display: flex;
+	width: auto;
 	border-left: 0;
 	border-right: 0;
-  width: 100%;
+	max-height: 200px;
+	height: 100%;
 	color: black;
-	background-color: black;
+	background-color: transparent;
 }
 
-.ProjectContent {
-	display: flex;
-}
-
-.ProjectContent button {
+.ProjectContainer button {
 	position: relative;
 	display: flex;
 	width: 25%;
-	flex: 1;
-	margin-right: 25px;
+	height: auto;
+	min-width: 400px;
+	aspect-ratio: 16/9;
+	z-index: 2;
+	border: 0;
+	background: no-repeat center url("../../../assets/lozanopowerelectric - Copy.jpg");
+	background-size: contain;
 }
 
-.ProjectContent section {
-	height: 100%;
-	flex: 1;
-}
-
-.ProjectContent button::before {
+.ProjectContainer button::before {
 	content: "";
 	position: absolute;
-  border: 2px solid white;
+  	border: 2px solid white;
 	background-color: white;
 	width: 50px;
 	height: 100%;
@@ -37,7 +36,7 @@
 	z-index: 5;
 }
 
-.ProjectContent button::after {
+.ProjectContainer button::after {
 	content: "";
 	position: absolute;
   	border: 2px solid white;
@@ -51,20 +50,12 @@
 	z-index: 5;
 }
 
-.ProjectContent:hover button img {
-	transition: 0.3s ease-in-out;
-}
 
-.ProjectContent:hover button img {
-	opacity: 0;
-}
-
-.ProjectContent section {
-	flex: 2;
+.ProjectContainer section {
 	display: flex;
-	position: relative;
 	justify-content: center;
 	align-items: center;
+	background-color: white;
 }
 
 /*
@@ -81,26 +72,22 @@
 	
 }
 */
+
+.ProjectDescription {
+	border-radius: 0 1rem 1rem 0;
+}
+
 .ProjectTechnologies {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
 }
 
 .ProjectText {
-	display: flex;
-	background-color: white;
+	background-color: red;
 	border-radius: 0 1rem 1rem 0;
 }
 
 .ProjectText div:nth-child(1) {
 	background-color: black;
-}
-
-.ProjectText div {
-	height: 100%;
-	width: auto;
-	padding: 0 1rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
