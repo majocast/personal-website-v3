@@ -47,7 +47,7 @@ export default function Project(projectData: Project): ReactElement {
 	return (
 		<motion.div
 			layout
-			transition={{ duration: 0.5 }}
+			transition={{ duration: 1 }}
 			className={styles.ProjectContainer}
 			style={{ order: isOpen ? 1 : 2}}
 		>
