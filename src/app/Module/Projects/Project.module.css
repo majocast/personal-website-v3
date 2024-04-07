@@ -3,6 +3,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	max-width: 1000px;
+	border: 2px dashed white;
 }
 
 .ProjectContainer {
