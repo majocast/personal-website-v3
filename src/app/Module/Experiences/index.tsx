@@ -18,7 +18,15 @@ export default function Experiences(moduleData: ExperienceData): ReactElement {
 	const experiences = moduleData.experiences.map((experience: Experience, i: number): ReactElement => {
 		return <Experience {...experience} />
 	})
-	return <motion.div className={styles.ExperiencesContainer} layout>
-		{experiences}
+	const buttons = moduleData.experiences.map((experience: Experience, i: number) => {
+		return <button>{experience.title}</button>
+	})
+	return <motion.div className={styles.ExperiencesWrapper} layout>
+		<section className={styles.ButtonContainer}>
+			{buttons}
+		</section>
+		<section className={styles.ExperienceContainer}>
+			{experiences}
+		</section>
 	</motion.div>
 }
