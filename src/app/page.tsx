@@ -1,10 +1,28 @@
 import styles from "./page.module.css";
-import Projects from './Module/Projects'
+import Projects from './Module/Projects';
+import Experiences from "./Module/Experiences";
 import LozanoPower from '../assets/lozanopowerelectric - Copy.jpg'
 import EventFinder from '../assets/eventfinder - Copy.jpg';
 import PersonalWebsite from '../assets/myportfolio - Copy.jpg';
 import OnTheGrind from '../assets/onthegrind - Copy.jpg';
 //const Project = lazy(() => import('./Module/Project/index'))
+
+const MockExperienceData = {
+  "experiences": [
+    {
+      title: "The Walt Disney Company",
+      description: "I worked at the walt disney company as a digital production intern it was a cool experience working in a team of roughly 10 people and being very involved in production"
+    },
+    {
+      title: "The Walt Disney Company",
+      description: "I worked at the walt disney company as a digital production intern it was a cool experience working in a team of roughly 10 people and being very involved in production"
+    },
+    {
+      title: "The Walt Disney Company",
+      description: "I worked at the walt disney company as a digital production intern it was a cool experience working in a team of roughly 10 people and being very involved in production"
+    },
+  ]
+}
 
 const MockProjectData = {
   "projects": [
@@ -55,7 +73,7 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <section className="">
-        <Projects {...MockProjectData}/>
+        <Experiences {...MockExperienceData}/>
       </section>
     </main>
   );
