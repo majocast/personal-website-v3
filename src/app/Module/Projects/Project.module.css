@@ -2,60 +2,58 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	max-width: 1000px;
-	border: 2px dashed white;
+	max-width: 1400px;
+	margin: 0 auto;
+	justify-self: center;
 }
 
 .ProjectContainer {
-	margin: 20px 40px;
-	display: flex;
-	width: auto;
-	border-left: 0;
-	border-right: 0;
-	max-height: 200px;
-	height: 100%;
-	color: black;
-	background-color: transparent;
-}
-
-.ProjectContainer button {
 	position: relative;
+	margin: 20px 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 25%;
-	height: auto;
-	min-width: 400px;
-	aspect-ratio: 16/9;
+	width: auto;
+	border-left: 0;
+	border-right: 0;
+	max-width: 800px;
+	height: 100%;
+	max-height: 600px;
+	color: black;
+	font-weight: 600;
+	background-color: transparent;
+	border: 5px solid silver;
+	border-radius: 25px;
+}
+
+.ProjectContainer button {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	width: 100%;
+	height: 50%;
 	z-index: 2;
 	border: 0;
+	/*
+	* Created with https://www.css-gradient.com
+	* Gradient link: https://www.css-gradient.com/?c1=fabf01&c2=8004a8&gt=r&gd=dbr
+	*/
+	background: rgba(250, 191, 1, 1.0);
+	background: radial-gradient(at right bottom, rgba(250, 191, 1, 1.0), rgba(128, 4, 168, 1.0));
+	border-radius: 20px;
 }
 
-.ProjectContainer button::before {
-	content: "";
-	position: absolute;
-  	border: 2px solid white;
-	background-color: white;
-	width: 50px;
-	height: 100%;
-	top: -2px;
-	left: -25px;
-	transform: skewX(-10deg);
-	z-index: 5;
-}
-
-.ProjectContainer button::after {
-	content: "";
-	position: absolute;
-  	border: 2px solid white;
-	background-color: white;
-	width: 50px;
-	height: 100%;
-	top: -2px;
-	right: -25px;
-	transform: skewX(-10deg);
-	border-right: 2px solid black;
-	z-index: 5;
+.ProjectContainer button div {
+	min-height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50%;
+	color: black;
+	font-size: 32px !important;
+	font-weight: 800 !important;
+	text-transform: uppercase;
 }
 
 
@@ -81,25 +79,16 @@
 */
 
 .ProjectDescription {
-	border-radius: 0 1rem 1rem 0;
-	background-color: white;
+	font-size: 18px;
+	width: 100%;
+	position: absolute;
+	z-index: 3;
 }
 
 .ProjectTechnologies {
 	height: 100%;
 	padding: 0 1rem;
-	background-color: black;
-	margin-left: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-}
-
-.ProjectText {
-	background-color: red;
-	border-radius: 0 1rem 1rem 0;
-}
-
-.ProjectText div:nth-child(1) {
-	background-color: black;
 }

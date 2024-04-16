@@ -13,20 +13,22 @@ import {
 } from 'react-icons/bi';
 import Image from 'next/image';
 
-const slideVariants = {
-	open: {
-		width: "100%",
-		order: 2,
+const buttonVariants = {
+	openButton: {
+		filter: "blur(20px)",
 	},
-	closed: {
-		width: 0,
-		order: 1,
-	},
+	closedButton: {
+		filter: "blur(0)",
+	}
+}
+
+const contentVariants = {
 	openText: {
 		opacity: 1,
+		transition: {delay: 0.5, duration: 0.3}
 	},
 	closedText: {
-		opacity: 0
+		opacity: 0,
 	}
 }
 
@@ -47,38 +49,50 @@ export default function Project(projectData: Project): ReactElement {
 	return (
 		<motion.div
 			layout
-			transition={{ duration: 1 }}
 			className={styles.ProjectContainer}
-			style={{ order: isOpen ? 1 : 2}}
+			onHoverStart={toggleContent}
+			onHoverEnd={toggleContent}
 		>
-			<button onClick={toggleContent}>
-				<Image style={{width: "100%", maxWidth:"400px", height:"auto"}} src={projectData.image.src} alt={projectData.image.alt}/>
-			</button>
+			<motion.button 
+				animate={isOpen ? "openButton" : "closedButton"}
+				variants={buttonVariants}
+			>
+				<motion.div
+					animate={!isOpen ? {opacity: 1} : {opacity: 0}}
+				>
+					<Image
+						style={{objectFit: 'cover', maxWidth: "550px", aspectRatio: "16/9", width: "100%", height:"auto", borderRadius: "22px 22px 0 0"}}
+						src={projectData.image.src} alt={projectData.image.alt}
+					/>
+				</motion.div>
+				{
+					<motion.div
+						animate={!isOpen ? {opacity: 1} : {opacity: 0}}
+					>
+						<span>{projectData.name}</span>
+					</motion.div>
+				}
+			</motion.button>
 			<AnimatePresence>
 				{
 					isOpen && <motion.section
-						initial="closed"
-						animate="open"
-						exit="closed"
-						variants={slideVariants}
+						initial="closedText"
+						animate="openText"
+						exit="closedText"
+						variants={contentVariants}
 						className={styles.ProjectDescription}
 					>
 						<div className={styles.ProjectTechnologies}>
 							{processedTechnologies}
 						</div>
 						<motion.div
-							initial={{ opacity: 0, padding: 0 }}
-							animate={{
-								opacity: 1,
-								padding: "1rem",
-								transition: {delay: 0.5, duration: 0.3}
-							}}
+							initial={{ opacity: 0}}
+							animate="openText"
 							exit={{
 								opacity: 0,
-								padding: 0,
-								transition: {duration: 0}
+								transition: {duration: 0.3}
 							}}
-							variants={slideVariants}
+							variants={contentVariants}
 						>
 							{projectData.description}
 						</motion.div>

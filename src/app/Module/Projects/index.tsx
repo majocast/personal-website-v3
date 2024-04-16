@@ -31,21 +31,6 @@ type ProjectsData = {
 	projects: Project[];
 }
 
-const slideVariants = {
-	open: {
-		width: "100%",
-	},
-	closed: {
-		width: 0
-	},
-	openText: {
-		opacity: 1,
-	},
-	closedText: {
-		opacity: 0
-	}
-}
-
 export default function Projects(projectsData: ProjectsData): ReactElement {
 	let projectsArray = projectsData.projects;
 	const Projects: ReactElement[] = projectsArray.map((project: Project, i: number): ReactElement => {
