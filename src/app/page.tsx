@@ -34,7 +34,7 @@ const MockProjectData = {
       },
       link: "https://www.lozanopowerelectric.com/",
       description: "Modern and unique responsive company website created to showcase the work, commitment, and services of Lozano Power Electric. Process included Figma drafting, quality assurance and verification between myself and the founder of the company, and customer centric design.",
-      technologies: ["BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript"]
+      technologies: ["BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript", "BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript"]
     },
     {
       name: "Event Finder",

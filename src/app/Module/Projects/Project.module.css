@@ -8,31 +8,39 @@
 }
 
 .ProjectContainer {
+	cursor: pointer;
+	overflow: hidden;
 	position: relative;
 	margin: 20px 10px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: auto;
 	border-left: 0;
 	border-right: 0;
-	max-width: 800px;
-	height: 100%;
-	max-height: 600px;
+	width: 500px;
+	height: 400px;
 	color: black;
-	font-weight: 600;
 	background-color: transparent;
 	border: 5px solid silver;
 	border-radius: 25px;
 }
 
-.ProjectContainer button {
+@media screen and (max-width: 768px) {
+	.ProjectContainer {
+		width: 400px;
+		height: 375px;
+		color: black;
+	}
+}
+
+.ProjectContainer section {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
 	align-items: center;
 	width: 100%;
-	height: 50%;
+	height: 100%;
 	z-index: 2;
 	border: 0;
 	/*
@@ -41,17 +49,24 @@
 	*/
 	background: rgba(250, 191, 1, 1.0);
 	background: radial-gradient(at right bottom, rgba(250, 191, 1, 1.0), rgba(128, 4, 168, 1.0));
+	
 	border-radius: 20px;
 }
 
-.ProjectContainer button div {
-	min-height: 200px;
+.ProjectContainer section div:first-child {
+	display: flex;
+	justify-content: center;
+}
+
+.ProjectContainer section div:not(:first-child) {
+	height: 100px;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 50%;
-	color: black;
-	font-size: 32px !important;
+	background-color: black;
+	color: #E1E1E1;
+	font-size: 28px !important;
 	font-weight: 800 !important;
 	text-transform: uppercase;
 }
@@ -79,16 +94,24 @@
 */
 
 .ProjectDescription {
-	font-size: 18px;
+	color: #E1E1E1;
+	font-size: 16px;
 	width: 100%;
 	position: absolute;
-	z-index: 3;
+	z-index: 2;
+	bottom: 10px;
+	padding: 0 1rem;
 }
 
 .ProjectTechnologies {
-	height: 100%;
+	position: absolute;
+	z-index: 2;
+	left: 10px;
+	top: 20px;
+	height: 200px;
+	width: 250px;
 	padding: 0 1rem;
 	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
+	flex-wrap: wrap;
+	justify-content: center;
 }
