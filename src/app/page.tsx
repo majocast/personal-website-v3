@@ -24,12 +24,20 @@ const MockExperienceData = {
   ]
 }
 
+/*
+		<img src="https://i.ibb.co/b21hbM8/lozanopowerelectric.jpg" alt="lozanopowerelectric" border="0">
+<img src="https://i.ibb.co/khFwTt9/onthegrind.jpg" alt="onthegrind" border="0">
+<img src="https://i.ibb.co/5j7NLgh/personalwebsite.jpg" alt="personalwebsite" border="0">
+<img src="https://i.ibb.co/KshtVDY/crisisconnect.jpg" alt="crisisconnect" border="0">
+<img src="https://i.ibb.co/0mBCW6j/eventfinder.jpg" alt="eventfinder" border="0">
+	*/
+
 const MockProjectData = {
   "projects": [
     {
       name: "Lozano Power Electric",
       image: {
-        src: LozanoPower,
+        src:  "https://i.ibb.co/b21hbM8/lozanopowerelectric.jpg",
         alt: "Lozano Power Electric"
       },
       link: "https://www.lozanopowerelectric.com/",
@@ -39,7 +47,7 @@ const MockProjectData = {
     {
       name: "Event Finder",
       image: {
-        src: EventFinder,
+        src: "https://i.ibb.co/0mBCW6j/eventfinder.jpg",
         alt: "EDM Event Finder"
       },
       link: "https://www.lozanopowerelectric.com/",
@@ -49,7 +57,7 @@ const MockProjectData = {
     {
       name: "Personal Website",
       image: {
-        src: PersonalWebsite,
+        src: "https://i.ibb.co/5j7NLgh/personalwebsite.jpg",
         alt: "Personal Website"
       },
       link: "https://www.lozanopowerelectric.com/",
@@ -59,7 +67,7 @@ const MockProjectData = {
     {
       name: "On The Grind",
       image: {
-        src: OnTheGrind,
+        src: "https://i.ibb.co/khFwTt9/onthegrind.jpg",
         alt: "On The Grind"
       },
       link: "https://www.lozanopowerelectric.com/",

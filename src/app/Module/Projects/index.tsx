@@ -15,7 +15,7 @@ import {
 import Project from "./Project";
 
 type Image = {
-	src: string | StaticImport;
+	src: string;
 	alt: string;
 }
 

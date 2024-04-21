@@ -33,6 +33,22 @@ const contentVariants = {
 }
 
 export default function Project(projectData: Project): ReactElement {
+
+	const projectImages: any = {
+		"Lozano Power Electric": "https://i.ibb.co/b21hbM8/lozanopowerelectric.jpg",
+		"Event Finder": "https://i.ibb.co/0mBCW6j/eventfinder.jpg",
+		"Personal Website": "https://i.ibb.co/5j7NLgh/personalwebsite.jpg",
+		"On The Grind": "https://i.ibb.co/khFwTt9/onthegrind.jpg"
+	}
+	/*
+		<img src="https://i.ibb.co/b21hbM8/lozanopowerelectric.jpg" alt="lozanopowerelectric" border="0">
+<img src="https://i.ibb.co/khFwTt9/onthegrind.jpg" alt="onthegrind" border="0">
+<img src="https://i.ibb.co/5j7NLgh/personalwebsite.jpg" alt="personalwebsite" border="0">
+<img src="https://i.ibb.co/KshtVDY/crisisconnect.jpg" alt="crisisconnect" border="0">
+<img src="https://i.ibb.co/0mBCW6j/eventfinder.jpg" alt="eventfinder" border="0">
+	*/
+	
+
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	//TODO: integrate method to grab strings and import on demand for IconTypes
@@ -52,6 +68,20 @@ export default function Project(projectData: Project): ReactElement {
 			className={styles.ProjectContainer}
 			onClick={toggleContent}
 		>
+			<motion.div
+				id={styles.BlurredBackground}
+				style={{
+					backgroundImage: `url(${projectData.image.src})`
+				}}
+				animate={isOpen ? {
+					opacity: "100%",
+					transition: {delay: 0.5, duration: 0.3}
+				} : {
+					opacity: "0%",
+					transition: {delay: 0.5, duration: 0.3}
+				}}
+			>&nbsp;
+			</motion.div>
 			<motion.section 
 				animate={isOpen ? "openButton" : "closedButton"}
 				variants={buttonVariants}
@@ -65,6 +95,7 @@ export default function Project(projectData: Project): ReactElement {
 							maxHeight: "300px",
 							translateX: "0%",
 							translateY: "0%",
+							border: "0",
 							transition: {delay: 0.5, duration: 0.3}
 						} : {
 							borderRadius: "100px",
@@ -72,10 +103,11 @@ export default function Project(projectData: Project): ReactElement {
 							maxHeight: "200px",
 							translateX: "65%",
 							translateY: "-15%",
+							border: "5px solid silver",
 							transition: {delay: 0.5, duration: 0.3}
 						}}
 				>
-					<Image
+					<img
 						style={{objectFit: 'contain', width: "auto", height: "100%"}}
 						src={projectData.image.src} alt={projectData.image.alt}
 					/>

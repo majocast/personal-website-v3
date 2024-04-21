@@ -43,14 +43,22 @@
 	height: 100%;
 	z-index: 2;
 	border: 0;
-	/*
-	* Created with https://www.css-gradient.com
-	* Gradient link: https://www.css-gradient.com/?c1=fabf01&c2=8004a8&gt=r&gd=dbr
-	*/
-	background: rgba(250, 191, 1, 1.0);
-	background: radial-gradient(at right bottom, rgba(250, 191, 1, 1.0), rgba(128, 4, 168, 1.0));
-	
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0, 0.4);
 	border-radius: 20px;
+}
+
+#BlurredBackground {
+	color: #E1E1E1;
+	background-color: rgba(0,0,0, 0.4);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	filter: blur(8px);
+	-webkit-filter: blur(8px);
+	height: 100%;
+	width: 100%;
+	position: absolute;
 }
 
 .ProjectContainer section div:first-child {
