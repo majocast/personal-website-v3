@@ -19,9 +19,14 @@ type Image = {
 	alt: string;
 }
 
+type DemoData = {
+	text: string;
+	link: string;
+}
+
 export type Project = {
 	name: string;
-	link: string;
+	demoData: DemoData;
 	image: Image;
 	description: string;
 	technologies: string[];

@@ -5,6 +5,8 @@ import styles from "./Project.module.css";
 import { ReactElement, useRef, useState } from "react";
 import type { IconType } from "react-icons";
 import type { Project } from ".";
+import CTAButton from '../SubModule/CTAButton';
+
 import {
   BiLogoReact, 
   BiLogoCss3, 
@@ -55,7 +57,7 @@ export default function Project(projectData: Project): ReactElement {
 	const technologies = [BiLogoHtml5, BiLogoCss3, BiLogoReact, BiLogoJavascript, BiLogoHtml5, BiLogoCss3, BiLogoReact, BiLogoJavascript]
 	const processedTechnologies: ReactElement[] = technologies.map((tech: IconType, i: number): ReactElement => {
 		const Icon = tech;
-		return <Icon key={i} size={50} color="white" style={{margin: "0 10px"}}/>
+		return <Icon key={i} size={45} color="white" style={{margin: "0 10px"}}/>
 	})
 
 	const toggleContent = (): void => {
@@ -69,7 +71,7 @@ export default function Project(projectData: Project): ReactElement {
 			onClick={toggleContent}
 		>
 			<motion.div
-				id={styles.BlurredBackground}
+				className={styles.BlurredBackground}
 				style={{
 					backgroundImage: `url(${projectData.image.src})`
 				}}
@@ -158,6 +160,9 @@ export default function Project(projectData: Project): ReactElement {
 							<span style={{fontSize: "28px", textTransform: "uppercase"}}>{projectData.name}</span><br />
 								{projectData.description}
 						</strong>
+						<div style={{display: "flex", justifyContent: "center"}}>
+							<CTAButton buttonData={projectData.demoData} />
+						</div>
 					</motion.div>
 				}
 			</AnimatePresence>
