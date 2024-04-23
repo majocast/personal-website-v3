@@ -1,0 +1,19 @@
+.Nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    height: 100%;
+    width: 15vw;
+}
+
+.Items {
+
+    top: 5%;
+    position: fixed;
+    border: 2px solid white;
+}

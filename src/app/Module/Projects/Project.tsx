@@ -94,7 +94,7 @@ export default function Project(projectData: Project): ReactElement {
 						{
 							borderRadius: "0",
 							maxWidth: "500px",
-							maxHeight: "300px",
+							maxHeight: "350px",
 							translateX: "0%",
 							translateY: "0%",
 							border: "0",
@@ -104,8 +104,8 @@ export default function Project(projectData: Project): ReactElement {
 							maxWidth: "200px",
 							maxHeight: "200px",
 							translateX: "65%",
-							translateY: "-15%",
-							border: "5px solid silver",
+							translateY: "-25%",
+							border: "5px solid #222831",
 							transition: {delay: 0.5, duration: 0.3}
 						}}
 				>
@@ -131,20 +131,6 @@ export default function Project(projectData: Project): ReactElement {
 			</motion.section>
 			<AnimatePresence>
 				{
-					isOpen && <motion.div 
-						className={styles.ProjectTechnologies}
-						initial={{ opacity: 0 }}
-						animate="openText"
-						exit={{
-							opacity: 0,
-							transition: {duration: 0.3}
-						}}
-						variants={contentVariants}
-					>
-						{processedTechnologies}
-					</motion.div>
-				}
-				{
 					isOpen && <motion.div
 						initial={{ opacity: 0 }}
 						animate="openText"
@@ -155,12 +141,25 @@ export default function Project(projectData: Project): ReactElement {
 						variants={contentVariants}
 						className={styles.ProjectDescription}
 					>
-						
-						<strong>
-							<span style={{fontSize: "28px", textTransform: "uppercase"}}>{projectData.name}</span><br />
-								{projectData.description}
-						</strong>
-						<div style={{display: "flex", justifyContent: "center"}}>
+						<motion.div 
+							className={styles.ProjectTechnologies}
+							initial={{ opacity: 0 }}
+							animate="openText"
+							exit={{
+								opacity: 0,
+								transition: {duration: 0.3}
+							}}
+							variants={contentVariants}
+						>
+							{processedTechnologies}
+						</motion.div>
+						<div style={{height: "150px"}}>
+							<strong>
+								<span style={{fontSize: "28px", textTransform: "uppercase", fontWeight: "800", backgroundColor: "#EEEEEE", padding: "0 5px"}}><strong>{projectData.name}</strong></span><br />
+								<span style={{color: "#EEEEEE"}}>{projectData.description}</span>
+							</strong>
+						</div>
+						<div style={{display: "flex", justifyContent: "center", color: "#76ABAE", padding: "5px 0 0"}}>
 							<CTAButton buttonData={projectData.demoData} />
 						</div>
 					</motion.div>

@@ -5,9 +5,10 @@ import LozanoPower from '../assets/lozanopowerelectric - Copy.jpg'
 import EventFinder from '../assets/eventfinder - Copy.jpg';
 import PersonalWebsite from '../assets/myportfolio - Copy.jpg';
 import OnTheGrind from '../assets/onthegrind - Copy.jpg';
+import Navigation from "./Module/Navigation";
 //const Project = lazy(() => import('./Module/Project/index'))
 
-//Hex Codes: #615545, #9B773D, #121112, #646263, #444243
+//Hex Codes: #222831, #31363F, #76ABAE, #EEEEEE
 
 const MockExperienceData = {
   "experiences": [
@@ -50,7 +51,7 @@ const MockProjectData = {
       technologies: ["BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript", "BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript"]
     },
     {
-      name: "Event Finder",
+      name: "EDM Event Finder",
       image: {
         src: "https://i.ibb.co/0mBCW6j/eventfinder.jpg",
         alt: "EDM Event Finder"
@@ -99,6 +100,7 @@ const buttonData = {
 export default async function Home() {
   return (
     <main className={styles.main}>
+      <Navigation />
       <section className="">
         <Projects {...MockProjectData} />
       </section>
