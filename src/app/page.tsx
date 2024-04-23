@@ -101,7 +101,7 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <Navigation />
-      <section className="">
+      <section className={styles.content}>
         <Projects {...MockProjectData} />
       </section>
     </main>

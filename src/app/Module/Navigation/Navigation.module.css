@@ -1,19 +1,17 @@
 .Nav {
-    position: relative;
     display: flex;
+    position: fixed;
     justify-content: center;
-    top: 0;
     left: 0;
+    top: 0;
     color: white;
     background-color: black;
-    border: 2px solid black;
     height: 100%;
     width: 15vw;
 }
 
 .Items {
-
-    top: 5%;
     position: fixed;
+    top: 10%;
     border: 2px solid white;
 }
