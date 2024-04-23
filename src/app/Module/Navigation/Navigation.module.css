@@ -8,10 +8,10 @@
     background-color: black;
     height: 100%;
     width: 15vw;
+    padding: 100px 0;
 }
 
 .Items {
-    position: fixed;
     top: 10%;
     border: 2px solid white;
 }
