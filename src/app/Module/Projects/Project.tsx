@@ -18,10 +18,12 @@ import Image from 'next/image';
 
 const backgroundsVariants = {
 	openButton: {
-		filter: "blur(5px)"
+		filter: "blur(5px)",
+		opacity: "0.6"
 	},
 	closedButton: {
 		filter: "blur(0)",
+		opacity: "1"
 	}
 }
 
@@ -58,7 +60,7 @@ export default function Project(projectData: Project): ReactElement {
 	const technologies = [BiLogoHtml5, BiLogoCss3, BiLogoReact, BiLogoJavascript, BiLogoHtml5, BiLogoCss3, BiLogoReact, BiLogoJavascript]
 	const processedTechnologies: ReactElement[] = technologies.map((tech: IconType, i: number): ReactElement => {
 		const Icon = tech;
-		return <Icon key={i} size={60} color="#222831" style={{margin: "0 auto"}}/>
+		return <Icon key={i} className={styles.techIcons} color="#222831" style={{margin: "0 auto"}}/>
 	})
 
 	const toggleContent = (): void => {
@@ -91,10 +93,10 @@ export default function Project(projectData: Project): ReactElement {
 					>
 						<div className={styles.titleContainer}>
 							<strong>
-								<span style={{fontSize: "32px", textTransform: "uppercase", fontWeight: "800", padding: "0 5px"}}><strong>{projectData.name}</strong></span><br />
+								<span><strong>{projectData.name}</strong></span><br />
 							</strong>
 							<strong>
-								{isOpen ? <MdKeyboardArrowDown size={60}/> : <MdKeyboardArrowUp size={60}/>}
+								{isOpen ? <MdKeyboardArrowDown className={styles.Arrow}/> : <MdKeyboardArrowUp className={styles.Arrow}/>}
 							</strong>
 						</div>
 						<div 
