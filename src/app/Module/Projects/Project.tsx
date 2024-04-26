@@ -6,6 +6,7 @@ import { ReactElement, useRef, useState } from "react";
 import type { IconType } from "react-icons";
 import type { Project } from ".";
 import CTAButton from '../SubModule/CTAButton';
+import { MdKeyboardArrowUp, MdKeyboardArrowDown  } from "react-icons/md";
 
 import {
   BiLogoReact, 
@@ -15,9 +16,9 @@ import {
 } from 'react-icons/bi';
 import Image from 'next/image';
 
-const buttonVariants = {
+const backgroundsVariants = {
 	openButton: {
-		filter: "blur(0)"
+		filter: "blur(5px)"
 	},
 	closedButton: {
 		filter: "blur(0)",
@@ -57,7 +58,7 @@ export default function Project(projectData: Project): ReactElement {
 	const technologies = [BiLogoHtml5, BiLogoCss3, BiLogoReact, BiLogoJavascript, BiLogoHtml5, BiLogoCss3, BiLogoReact, BiLogoJavascript]
 	const processedTechnologies: ReactElement[] = technologies.map((tech: IconType, i: number): ReactElement => {
 		const Icon = tech;
-		return <Icon key={i} size={45} color="white" style={{margin: "0 10px"}}/>
+		return <Icon key={i} size={60} color="#222831" style={{margin: "0 auto"}}/>
 	})
 
 	const toggleContent = (): void => {
@@ -66,99 +67,46 @@ export default function Project(projectData: Project): ReactElement {
 
 	return (
 		<motion.div
-			layout
 			className={styles.ProjectContainer}
 			onClick={toggleContent}
 		>
 			<motion.div
-				className={styles.BlurredBackground}
-				style={{
-					backgroundImage: `url(${projectData.image.src})`
-				}}
-				animate={isOpen ? {
-					opacity: "100%",
-					transition: {delay: 0.5, duration: 0.3}
-				} : {
-					opacity: "0%",
-					transition: {delay: 0.5, duration: 0.3}
-				}}
-			>&nbsp;
-			</motion.div>
-			<motion.section 
 				animate={isOpen ? "openButton" : "closedButton"}
-				variants={buttonVariants}
-			>
-				<motion.div
-					style={{overflow: "hidden"}}
-					animate={!isOpen ? 
-						{
-							borderRadius: "0",
-							maxWidth: "500px",
-							maxHeight: "350px",
-							translateX: "0%",
-							translateY: "0%",
-							border: "0",
-							transition: {delay: 0.5, duration: 0.3}
-						} : {
-							borderRadius: "100px",
-							maxWidth: "200px",
-							maxHeight: "200px",
-							translateX: "65%",
-							translateY: "-25%",
-							border: "5px solid #222831",
-							transition: {delay: 0.5, duration: 0.3}
-						}}
-				>
-					<img
-						style={{objectFit: 'contain', width: "auto", height: "100%"}}
-						src={projectData.image.src} alt={projectData.image.alt}
-					/>
-				</motion.div>
-				{
-					<motion.div
-						animate={!isOpen ? {
-							opacity: 1,
-							translateY: "0%",
-							transition: {delay: 0.9, duration: 0.3}
-						} : {
-							opacity: 0,
-							translateY: "100%",
-						}}
-					>
-						<span>{projectData.name}</span>
-					</motion.div>
-				}
-			</motion.section>
+				className={styles.backgroundContainer}
+				variants={backgroundsVariants}
+				style={{backgroundImage: `url(${projectData.image.src})`}}
+			>a</motion.div>
 			<AnimatePresence>
 				{
-					isOpen && <motion.div
-						initial={{ opacity: 0 }}
-						animate="openText"
-						exit={{
-							opacity: 0,
+					<motion.div
+						animate={isOpen ? {
+							top: "10%",
+							transition: {duration: 0.3}
+						} : {
+							top: "80%",
 							transition: {duration: 0.3}
 						}}
 						variants={contentVariants}
 						className={styles.ProjectDescription}
 					>
-						<motion.div 
-							className={styles.ProjectTechnologies}
-							initial={{ opacity: 0 }}
-							animate="openText"
-							exit={{
-								opacity: 0,
-								transition: {duration: 0.3}
-							}}
-							variants={contentVariants}
-						>
-							{processedTechnologies}
-						</motion.div>
-						<div style={{height: "150px"}}>
+						<div className={styles.titleContainer}>
 							<strong>
-								<span style={{fontSize: "28px", textTransform: "uppercase", fontWeight: "800", backgroundColor: "#EEEEEE", padding: "0 5px"}}><strong>{projectData.name}</strong></span><br />
-								<span style={{color: "#EEEEEE"}}>{projectData.description}</span>
+								<span style={{fontSize: "32px", textTransform: "uppercase", fontWeight: "800", padding: "0 5px"}}><strong>{projectData.name}</strong></span><br />
+							</strong>
+							<strong>
+								{isOpen ? <MdKeyboardArrowDown size={60}/> : <MdKeyboardArrowUp size={60}/>}
 							</strong>
 						</div>
+						<div 
+							className={styles.ProjectTechnologies}
+						>
+							{processedTechnologies}
+						</div>
+						<p className={styles.projectText}>
+							<strong>
+								<span>{projectData.description}</span>
+							</strong>
+						</p>
 						<div style={{display: "flex", justifyContent: "center", color: "#76ABAE", padding: "5px 0 0"}}>
 							<CTAButton buttonData={projectData.demoData} />
 						</div>

@@ -8,21 +8,26 @@
 }
 
 .ProjectContainer {
+	display: flex;
+	justify-content: center;
 	cursor: pointer;
 	overflow: hidden;
 	position: relative;
 	margin: 20px 10px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	border-left: 0;
 	border-right: 0;
-	width: 500px;
-	height: 450px;
-	background-color: transparent;
 	border: 5px solid #222831;
 	border-radius: 25px;
+}
+
+.backgroundContainer {
+	width: 600px;
+	height: 500px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 @media screen and (max-width: 768px) {
@@ -33,89 +38,39 @@
 	}
 }
 
-.ProjectContainer section {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
-	z-index: 2;
-	border: 0;
-	background-color: #222831; /* Fallback color */
-	background-color: rgba(0,0,0, 0.4);
-	border-radius: 20px;
-}
-
-.BlurredBackground {
-	color: #000000;
-	background-color: rgba(0,0,0, 0.4);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	filter: blur(8px);
-	-webkit-filter: blur(8px);
-	height: 100%;
-	width: 100%;
-	position: absolute;
-}
-
-.ProjectContainer section div:first-child {
-	display: flex;
-	justify-content: center;
-}
-
-.ProjectContainer section div:not(:first-child) {
-	height: 100px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #222831;
-	color: #76ABAE;
-	font-size: 28px !important;
-	font-weight: 800 !important;
-	text-transform: uppercase;
-}
-
-
-.ProjectContainer section {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-/*
-.ProjectContent section:nth-child(2) {
-	border-width: 5px;
-	border-style: solid;
-	margin: 0 5px;
-	border-image: linear-gradient(
-		to bottom, 
-		rgba(0, 0, 0, 100), 
-		rgba(255, 255, 255, 50),
-		rgba(0, 0, 0, 100)
-	) 1 100%;
-	
-}
-*/
 
 .ProjectDescription {
+	background-color: #222831; /* Fallback color */
+	background-color: rgba(217,217,217, 0.6);
 	display: flex;
-	color: #222831;
-	font-size: 14px;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	z-index: 2;
-	padding: 1rem 1rem;
 	flex-direction: column;
+	color: #222831;
+	position: absolute;
+	z-index: 1;
+	height: 450px;
+	border-radius: 25px 25px 0;
+}
+
+.titleContainer {
+	padding: 0 1rem;
+	height: 100px !important;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.projectText {
+	padding: 0 1rem 1rem;
+	text-align: center;
+	font-size: 18px !important;
 }
 
 .ProjectTechnologies {
-	height: 250px;
-	width: 250px;
+	padding: 0 1rem;
+	max-width: 600px;
+	height: 100px;
 	display: flex;
+	align-items: center;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-around;
 }

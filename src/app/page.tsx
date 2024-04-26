@@ -63,6 +63,7 @@ const MockProjectData = {
       description: "A fully responsive, event scraper application that allows users view the next EDM events in California. Furthermore, users can create an account and save the upcoming events that they wish to attend, providing a more personalized experience when finding and tracking your anticipated events.",
       technologies: ["BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript"]
     },
+    /*
     {
       name: "Personal Website",
       image: {
@@ -89,6 +90,7 @@ const MockProjectData = {
       description: "An e-commerce website that allows users to view the products that the company known as 'On The Grind' have to offer! Users can navigate the page, sign in or create an account, add items to their cart, place an order, and so much more.",
       technologies: ["BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript"]
     },
+    */
   ]
 }
 
@@ -100,7 +102,6 @@ const buttonData = {
 export default async function Home() {
   return (
     <main className={styles.main}>
-      <Navigation />
       <section className={styles.content}>
         <Projects {...MockProjectData} />
       </section>
