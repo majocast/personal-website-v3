@@ -92,11 +92,9 @@ export default function Project(projectData: Project): ReactElement {
 						className={styles.ProjectDescription}
 					>
 						<div className={styles.titleContainer}>
+								{isOpen ? <MdKeyboardArrowDown className={styles.Arrow}/> : <MdKeyboardArrowUp className={styles.Arrow}/>}
 							<strong>
 								<span><strong>{projectData.name}</strong></span><br />
-							</strong>
-							<strong>
-								{isOpen ? <MdKeyboardArrowDown className={styles.Arrow}/> : <MdKeyboardArrowUp className={styles.Arrow}/>}
 							</strong>
 						</div>
 						<div 
