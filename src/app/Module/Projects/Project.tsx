@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from "./Project.module.css";
-import { ReactElement, useRef, useState } from "react";
+import { ReactElement, useRef, useState, useContext, useEffect } from "react";
 import type { IconType } from "react-icons";
 import type { Project } from ".";
 import CTAButton from '../SubModule/CTAButton';
@@ -15,15 +15,16 @@ import {
   BiLogoJavascript,
 } from 'react-icons/bi';
 import Image from 'next/image';
+import { StateContext } from './StateProvider';
 
 const backgroundsVariants = {
 	openButton: {
-		filter: "blur(5px)",
-		opacity: "0.6"
+		width: "100%",
+		opacity: "1"
 	},
 	closedButton: {
-		filter: "blur(0)",
-		opacity: "1"
+		width: "15%",
+		opacity: "0.6"
 	}
 }
 
@@ -38,22 +39,7 @@ const contentVariants = {
 }
 
 export default function Project(projectData: Project): ReactElement {
-
-	const projectImages: any = {
-		"Lozano Power Electric": "https://i.ibb.co/b21hbM8/lozanopowerelectric.jpg",
-		"Event Finder": "https://i.ibb.co/0mBCW6j/eventfinder.jpg",
-		"Personal Website": "https://i.ibb.co/5j7NLgh/personalwebsite.jpg",
-		"On The Grind": "https://i.ibb.co/khFwTt9/onthegrind.jpg"
-	}
-	/*
-		<img src="https://i.ibb.co/b21hbM8/lozanopowerelectric.jpg" alt="lozanopowerelectric" border="0">
-<img src="https://i.ibb.co/khFwTt9/onthegrind.jpg" alt="onthegrind" border="0">
-<img src="https://i.ibb.co/5j7NLgh/personalwebsite.jpg" alt="personalwebsite" border="0">
-<img src="https://i.ibb.co/KshtVDY/crisisconnect.jpg" alt="crisisconnect" border="0">
-<img src="https://i.ibb.co/0mBCW6j/eventfinder.jpg" alt="eventfinder" border="0">
-	*/
-	
-
+	const { active, updateProject } = useContext(StateContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	//TODO: integrate method to grab strings and import on demand for IconTypes
@@ -63,22 +49,34 @@ export default function Project(projectData: Project): ReactElement {
 		return <Icon key={i} className={styles.techIcons} color="#222831" style={{margin: "0 auto"}}/>
 	})
 
+	useEffect(() => {
+		if(active === projectData.index) setIsOpen(true);
+		else setIsOpen(false)
+	}, [active])
+
 	const toggleContent = (): void => {
-		setIsOpen(!isOpen);
+		console.log("Project Index: " + projectData.index)
+		updateProject(projectData.index);
 	}
 
 	return (
 		<motion.div
+			animate={isOpen ? "openButton" : "closedButton"}
+			variants={backgroundsVariants}
 			className={styles.ProjectContainer}
 			onClick={toggleContent}
 		>
-			<motion.div
-				animate={isOpen ? "openButton" : "closedButton"}
-				className={styles.backgroundContainer}
-				variants={backgroundsVariants}
-				style={{backgroundImage: `url(${projectData.image.src})`}}
-			>a</motion.div>
-			<AnimatePresence>
+			<img
+				className={styles.imageContainer}
+				src={projectData.image.src}
+				alt={projectData.image.alt}
+			/>
+		</motion.div>
+	)
+	
+}
+/*
+<AnimatePresence>
 				{
 					<motion.div
 						animate={isOpen ? {
@@ -113,7 +111,4 @@ export default function Project(projectData: Project): ReactElement {
 					</motion.div>
 				}
 			</AnimatePresence>
-		</motion.div>
-	)
-	
-}
+*/

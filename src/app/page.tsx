@@ -1,11 +1,12 @@
 import styles from "./page.module.css";
-import Projects from './Module/Projects';
 import Experiences from "./Module/Experiences";
 import LozanoPower from '../assets/lozanopowerelectric - Copy.jpg'
 import EventFinder from '../assets/eventfinder - Copy.jpg';
 import PersonalWebsite from '../assets/myportfolio - Copy.jpg';
 import OnTheGrind from '../assets/onthegrind - Copy.jpg';
 import Navigation from "./Module/Navigation";
+import StateProvider from "./Module/Projects/StateProvider";
+import ProjectsWrapper from "./Module/Projects";
 //const Project = lazy(() => import('./Module/Project/index'))
 
 //Hex Codes: #222831, #31363F, #76ABAE, #EEEEEE
@@ -38,6 +39,7 @@ const MockExperienceData = {
 const MockProjectData = {
   "projects": [
     {
+      index: 0,
       name: "Lozano Power Electric",
       image: {
         src:  "https://i.ibb.co/b21hbM8/lozanopowerelectric.jpg",
@@ -51,6 +53,7 @@ const MockProjectData = {
       technologies: ["BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript", "BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript"]
     },
     {
+      index: 1,
       name: "EDM Event Finder",
       image: {
         src: "https://i.ibb.co/0mBCW6j/eventfinder.jpg",
@@ -65,6 +68,7 @@ const MockProjectData = {
     },
     
     {
+      index: 2,
       name: "Personal Website",
       image: {
         src: "https://i.ibb.co/5j7NLgh/personalwebsite.jpg",
@@ -78,6 +82,35 @@ const MockProjectData = {
       technologies: ["BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript"]
     },
     {
+      index: 3,
+      name: "Lozano Power Electric",
+      image: {
+        src:  "https://i.ibb.co/b21hbM8/lozanopowerelectric.jpg",
+        alt: "Lozano Power Electric"
+      },
+      demoData: {
+        text: "Live Demo",
+        link: "https://www.lozanopowerelectric.com/",
+      },
+      description: "Modern and unique responsive company website created to showcase the work, commitment, and services of Lozano Power Electric. Process included Figma drafting, quality assurance and verification between myself and the founder of the company, and customer centric design.",
+      technologies: ["BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript", "BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript"]
+    },
+    {
+      index: 4,
+      name: "EDM Event Finder",
+      image: {
+        src: "https://i.ibb.co/0mBCW6j/eventfinder.jpg",
+        alt: "EDM Event Finder"
+      },
+      demoData: {
+        text: "Live Demo",
+        link: "https://www.lozanopowerelectric.com/",
+      },
+      description: "A fully responsive, event scraper application that allows users view the next EDM events in California. Furthermore, users can create an account and save the upcoming events that they wish to attend, providing a more personalized experience when finding and tracking your anticipated events.",
+      technologies: ["BiLogoHtml5", "BiLogoCss3", "BiLogoReact", "BiLogoJavascript"]
+    },
+    {
+      index: 5,
       name: "On The Grind",
       image: {
         src: "https://i.ibb.co/khFwTt9/onthegrind.jpg",
@@ -103,7 +136,7 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <section className={styles.content}>
-        <Projects {...MockProjectData} />
+        <ProjectsWrapper {...MockProjectData}/>
       </section>
     </main>
   );

@@ -1,10 +1,19 @@
 .ProjectsWrapper {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	max-width: 1400px;
-	margin: 0 auto;
+	width: 80vw;
 	justify-self: center;
+}
+
+.Projects {
+	display: flex;
+	height: 50vh;
+	width: 40vw;
+}
+
+.Description {
+	padding: 1rem;
+	flex: 1;
+	color: white;
 }
 
 .ProjectContainer {
@@ -13,8 +22,6 @@
 	cursor: pointer;
 	overflow: hidden;
 	position: relative;
-	margin: 20px 10px;
-	display: flex;
 	flex-direction: column;
 	border-left: 0;
 	border-right: 0;
@@ -23,30 +30,25 @@
 	background-color: #222831;
 }
 
-.backgroundContainer {
-	width: 600px;
-	height: 500px;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+.imageContainer {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
 }
 
 
 .ProjectDescription {
-	background-color: #222831; /* Fallback color */
-	background-color: rgba(217,217,217, 0.6);
 	display: flex;
 	flex-direction: column;
-	color: #222831;
-	position: absolute;
+	justify-content: center;
+	color: #FFFFFF;
 	z-index: 1;
-	height: 450px;
-	border-radius: 25px 25px 0;
+	height: 100%;
+	width: 100%;
 }
 
 .titleContainer {
 	padding: 0 1rem;
-	height: 80px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -62,7 +64,7 @@
 }
 
 .techIcons {
-	font-size: 60px;
+	font-size: 50px;
 }
 
 .projectText {

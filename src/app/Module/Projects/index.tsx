@@ -1,9 +1,9 @@
 'use client';
 
 import Image from "next/image";
+import React, { ReactElement, useContext, useState, createContext, Dispatch, useEffect} from "react";
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from "./Project.module.css";
-import { ReactElement, useRef, useState } from "react";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import type { IconType } from "react-icons";
 import {
@@ -13,6 +13,8 @@ import {
   BiLogoJavascript,
 } from 'react-icons/bi';
 import Project from "./Project";
+import StateProvider, { StateContext } from "./StateProvider";
+import Projects from "./Projects";
 
 type Image = {
 	src: string;
@@ -25,6 +27,7 @@ type DemoData = {
 }
 
 export type Project = {
+	index: number;
 	name: string;
 	demoData: DemoData;
 	image: Image;
@@ -36,25 +39,15 @@ type ProjectsData = {
 	projects: Project[];
 }
 
-export default function Projects(projectsData: ProjectsData): ReactElement {
-	let projectsArray = projectsData.projects;
-	const Projects: ReactElement[] = projectsArray.map((project: Project, i: number): ReactElement => {
-		console.log(project)
-		return (
-			<Project key={i} {...project}/>
-		)
-	})
+export default function ProjectsWrapper(projectsData: ProjectsData): ReactElement {
+	console.log(projectsData);
 
 	return (
-		<motion.div 
-			className={styles.ProjectsWrapper}
-			layout
-			transition={{ duration: 0.5 }}
-		>
-			<AnimatePresence>
-				{Projects}
-			</AnimatePresence>
-		</motion.div>
+		<StateProvider>
+			<motion.div className={styles.ProjectsWrapper}>
+				<Projects {...projectsData}/>
+			</motion.div>
+		</StateProvider>
 	)
 	
 }
