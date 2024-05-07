@@ -1,20 +1,16 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styles from "./Project.module.css";
-import { ReactElement, useRef, useState, useContext, useEffect } from "react";
+import { ReactElement, useState, useContext, useEffect } from "react";
 import type { IconType } from "react-icons";
 import type { Project } from ".";
-import CTAButton from '../SubModule/CTAButton';
-import { MdKeyboardArrowUp, MdKeyboardArrowDown  } from "react-icons/md";
-
 import {
   BiLogoReact, 
   BiLogoCss3, 
   BiLogoHtml5, 
   BiLogoJavascript,
 } from 'react-icons/bi';
-import Image from 'next/image';
 import { StateContext } from './StateProvider';
 
 const backgroundsVariants = {
@@ -64,6 +60,7 @@ export default function Project(projectData: Project): ReactElement {
 			animate={isOpen ? "openButton" : "closedButton"}
 			variants={backgroundsVariants}
 			className={styles.ProjectContainer}
+			onHoverStart={toggleContent}
 			onClick={toggleContent}
 		>
 			<img

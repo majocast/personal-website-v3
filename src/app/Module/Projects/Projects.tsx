@@ -1,13 +1,11 @@
 'use client';
 
 import Image from "next/image";
-import React, { ReactElement, useContext, useState, createContext, Dispatch, useEffect} from "react";
-import { AnimatePresence} from 'framer-motion';
+import React, { ReactElement, useContext, useEffect} from "react";
 import styles from "./Project.module.css";
 import Project from "./Project";
-import StateProvider, { StateContext } from "./StateProvider";
+import { StateContext } from "./StateProvider";
 import CTAButton from '../SubModule/CTAButton';
-import { MdKeyboardArrowUp, MdKeyboardArrowDown  } from "react-icons/md";
 import type { IconType } from "react-icons";
 import {
   BiLogoReact, 
