@@ -1,23 +1,18 @@
 'use client';
 
-import Image from "next/image";
 import React, { ReactElement, useContext, useEffect} from "react";
 import styles from "./Project.module.css";
 import Project from "./Project";
 import { StateContext } from "./StateProvider";
 import CTAButton from '../SubModule/CTAButton';
 import type { IconType } from "react-icons";
+import type { Image } from '../../page';
 import {
-  BiLogoReact, 
-  BiLogoCss3, 
-  BiLogoHtml5, 
+  BiLogoReact,
+  BiLogoCss3,
+  BiLogoHtml5,
   BiLogoJavascript,
 } from 'react-icons/bi';
-
-type Image = {
-	src: string;
-	alt: string;
-}
 
 type DemoData = {
 	text: string;
@@ -68,10 +63,10 @@ export default function Projects(projectsData: ProjectsData): ReactElement {
 						className={styles.ProjectDescription}
 					>
 						<div className={styles.titleContainer}>
-							<strong>
-								<span><strong>{projectsArray[active].name}</strong></span><br />
-							</strong>
-						</div>
+				<strong>
+					<span><strong>{projectsArray[active].name}</strong></span><br />
+				</strong>
+			</div>
 						<div 
 							className={styles.ProjectTechnologies}
 						>

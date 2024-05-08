@@ -1,15 +1,14 @@
 import styles from "./page.module.css";
 import Experiences from "./Module/Experiences";
-import LozanoPower from '../assets/lozanopowerelectric - Copy.jpg'
-import EventFinder from '../assets/eventfinder - Copy.jpg';
-import PersonalWebsite from '../assets/myportfolio - Copy.jpg';
-import OnTheGrind from '../assets/onthegrind - Copy.jpg';
-import Navigation from "./Module/Navigation";
-import StateProvider from "./Module/Projects/StateProvider";
-import ProjectsWrapper from "./Module/Projects";
+import Card from './Module/Card';
 //const Project = lazy(() => import('./Module/Project/index'))
 
 //Hex Codes: #222831, #31363F, #76ABAE, #EEEEEE
+
+export type Image = {
+	src: string;
+	alt: string;
+}
 
 const MockExperienceData = {
   "experiences": [
@@ -132,12 +131,26 @@ const buttonData = {
   link: "https://www.color-meanings.com/dark-color-palettes/"
 }
 
+const mockCardData = {
+  image: {
+    src: "https://i.ibb.co/khFwTt9/onthegrind.jpg",
+    alt: "On The Grind"
+  },
+	title: "On The Grind",
+	link: "https://www.lozanopowerelectric.com/",
+	description: "Modern and unique responsive company website created to showcase the work, commitment, and services of Lozano Power Electric. Process included Figma drafting, quality assurance and verification between myself and the founder of the company, and customer centric design."
+}
+
 export default async function Home() {
   return (
     <main className={styles.main}>
       <section className={styles.content}>
-        <ProjectsWrapper {...MockProjectData}/>
+        <Card {...mockCardData}/>
       </section>
     </main>
   );
 }
+
+
+//<Experiences {...MockExperienceData}/>
+//<ProjectsWrapper {...MockProjectData}/>
